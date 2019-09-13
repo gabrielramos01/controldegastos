@@ -37,6 +37,20 @@ class TipogastoController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre_tipogasto'=>'required',
+            'monto_gasto'=>'required|int'
+            ]);
+       $tipogastos = new Tipogasto(); 
+        
+        $tipogastos->nombre_tipogasto = $request->input('nombre_tipogasto');
+        $tipogastos->descripcion = $request->input('descripcion');
+        $tipogastos->monto_gasto = $request->input('monto_gasto');
+        $tipogastos->fecha_tipogasto = $request->input('fecha_tipogasto');
+        $tipogastos->save();
+
+        $tipogastos = Tipogasto::All();
+        return view('tipogastos.tipogastos', compact('tipogastos'));
         //
     }
 
@@ -48,6 +62,8 @@ class TipogastoController extends Controller
      */
     public function show(Tipogasto $tipogasto)
     {
+        $tipogastos = Tipogasto::All();
+        return view('tipogastos.tipogastos', compact('tipogastos'));
         //
     }
 

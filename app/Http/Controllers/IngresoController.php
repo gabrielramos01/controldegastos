@@ -14,7 +14,8 @@ class IngresoController extends Controller
      */
     public function index()
     {
-        return view('ingresos.ingresos');
+        $ingresos= Ingreso::All();
+        return view('ingresos.ingresos', compact('ingresos'));
         //
     }
 
@@ -37,6 +38,20 @@ class IngresoController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre_ingreso'=>'required',
+            'monto_ingreso'=>'required|int'
+            ]);
+       $ingreso = new Ingreso(); 
+        
+        $ingresos->nombre_ingreso = $request->input('nombre_ingreso');
+        $ingresos->descripcion_ingreso = $request->input('descripcion_ingreso');
+        $ingresos->monto_ingreso = $request->input('monto_ingreso');
+        $ingresos->fecha_ingreso = $request->input('fecha_ingreso');
+        $ingresos->save();
+
+        $ingresos = Ingreso::All();
+        return view('ingresos.ingresos', compact('ingresos'));
         //
     }
 
@@ -48,6 +63,8 @@ class IngresoController extends Controller
      */
     public function show(Ingreso $ingreso)
     {
+        $ingresos = Ingreso::All();
+        return view('ingresos.ingresos', compact('ingresos'));
         //
     }
 

@@ -14,7 +14,8 @@ class GastoController extends Controller
      */
     public function index()
     {
-        return view('gastos.gastos');
+        $gastos = Gasto::All();
+        return view('gastos.gastos', compact('gastos'));
         //
     }
 
@@ -37,6 +38,20 @@ class GastoController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre_gasto'=>'required',
+            'monto_gasto'=>'required|int'
+            ]);
+       $gastos = new Gasto(); 
+        
+        $gastos->nombre_gasto = $request->input('nombre_gasto');
+        $gastos->descripcion = $request->input('descripcion');
+        $gastos->monto_gasto = $request->input('monto_gasto');
+        $gastos->fecha_gasto = $request->input('fecha_gasto');
+        $gastos->save();
+
+        $gastos = Gasto::All();
+        return view('gastos.gastos', compact('gastos'));
         //
     }
 
@@ -48,6 +63,8 @@ class GastoController extends Controller
      */
     public function show(Gasto $gasto)
     {
+        $gastos = Gasto::All();
+        return view('gastos.gastos', compact('gastos'));
         //
     }
 

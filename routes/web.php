@@ -12,19 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('/gastos', 'GastoController');
-Route::resource('/ingresos', 'IngresoController');
-/*
-Route::get('/contactos', function () {
-    return view('contactos');
-});
-Route::get('/gastos', function () {
-    return view('gastos');
-});
-Route::get('/ingresos', function () {
-    return view('ingresos');
+    return view('home');
 });
 
-*/
+Route::resource('/personas', 'PersonaController');
+Route::resource('/gastos', 'GastoController');
+Route::resource('/ingresos', 'IngresoController');
+Route::resource('/tipogasto', 'TipogastoController');
+Route::resource('/ahorro', 'AhorroController');

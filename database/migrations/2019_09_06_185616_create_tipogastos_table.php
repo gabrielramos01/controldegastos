@@ -16,8 +16,8 @@ class CreateTipogastosTable extends Migration
         Schema::create('tipogastos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre_tipogasto');
-            $table->string('descripcion');
-            $table->date('fecha');
+            $table->string('descripcion_tipogasto');
+            $table->date('fecha_tipogasto');
             $table->integer('monto_gasto');
             $table->timestamps();
         });

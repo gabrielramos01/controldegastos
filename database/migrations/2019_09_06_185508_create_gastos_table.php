@@ -15,12 +15,10 @@ class CreateGastosTable extends Migration
     {
         Schema::create('gastos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            /*
-            $table->string('nombregasto')->nullable();
-            $table->string('descripcion');
-            $table->dateTime('fechagasto')->nullable();
-            $table->integer('monto')->nullable();
-            */
+            $table->string('nombre_gasto');
+            $table->string('descripcion_gasto');
+            $table->date('fecha_gasto');
+            $table->integer('monto_gasto');
             $table->timestamps();
         });
     }

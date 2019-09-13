@@ -14,10 +14,11 @@ class CreateIngresosTable extends Migration
     public function up()
     {
         Schema::create('ingresos', function (Blueprint $table) {
-            $table->bigIncrements('id');;
-            $table->string('descripcion');
-            $table->date('fecha');
-            $table->integer('monto_ingreso');
+            $table->bigIncrements('id');
+            $table->string('nombre_ingreso')->nullable();
+            $table->string('descripcion_ingreso');
+            $table->date('fecha_ingreso')->nullable();
+            $table->integer('monto_ingreso')->nullable();
             $table->timestamps();
         });
     }
