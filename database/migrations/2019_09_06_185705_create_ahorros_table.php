@@ -16,6 +16,14 @@ class CreateAhorrosTable extends Migration
         Schema::create('ahorros', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('monto');
+
+            $table->integer('ingreso_id')->unsigned();
+            $table->foreign('ingreso_id')->references('id')->on('ingresos')
+                ->onDelete('cascade');
+            $table->integer('gasto_id')->unsigned();
+            $table->foreign('gasto_id')->references('id')->on('gastos')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

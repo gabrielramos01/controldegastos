@@ -19,6 +19,11 @@ class CreateIngresosTable extends Migration
             $table->string('descripcion_ingreso');
             $table->date('fecha_ingreso')->nullable();
             $table->integer('monto_ingreso')->nullable();
+
+            $table->integer('persona_id')->unsigned();
+            $table->foreign('persona_id')->references('id')->on('personas')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
