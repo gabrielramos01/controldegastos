@@ -1,12 +1,23 @@
-@extends('layout')
+@extends('layouts.app')
 
-@section('title', 'Inicio')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-@section('title1', 'Finanzas Personales')
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-
-@section('contenido')
-<h1>Bienvenido al sistema de Finanzas</h1>
-
-
+                    You are logged in!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

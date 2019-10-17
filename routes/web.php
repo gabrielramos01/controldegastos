@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('layout');
 });
 
 Route::get('/contacto','ContactoController@index')->name('contacto');
@@ -22,3 +22,6 @@ Route::resource('/gastos', 'GastoController');
 Route::resource('/ingresos', 'IngresoController');
 Route::resource('/tipogasto', 'TipogastoController');
 Route::resource('/ahorro', 'AhorroController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

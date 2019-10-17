@@ -75,7 +75,7 @@
     </form>
   
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Usuario</a></li>
+      <li><a href="home.blade.php">Registrarse</a></li>
       </li>
     </ul>
   </div>
