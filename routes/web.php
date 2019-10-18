@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layout');
+    return view('home');
 });
 
 Route::get('/contacto','ContactoController@index')->name('contacto');
@@ -24,4 +24,9 @@ Route::resource('/tipogasto', 'TipogastoController');
 Route::resource('/ahorro', 'AhorroController');
 Auth::routes();
 
+Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('login/{provider}', 'Auth\SocialController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\SocialController@handleProviderCallback');

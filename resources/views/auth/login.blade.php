@@ -61,6 +61,18 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                    <a class="btn btn-link" href="redirect/facebook">
+                                        Facebook
+                                    </a>
+                                    <a class="btn btn-link" href="redirect/twitter">
+                                        Twitter
+                                    </a>
+                                    <a class="btn btn-link" href="redirect/github">
+                                        Github
+                                    </a>
+                                    <a class="btn btn-link" href="redirect/google">
+                                        Google
+                                    </a>
                                 @endif
                             </div>
                         </div>
